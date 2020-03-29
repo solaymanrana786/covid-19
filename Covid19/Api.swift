@@ -29,8 +29,54 @@ class Api {
             .eraseToAnyPublisher()
     }
     
+    func fetchData1() -> AnyPublisher<Latest,Error> {
+
+          let url = "https://coronavirus-tracker-api.herokuapp.com/v2/latest"
+          
+          guard let dataUrl = URL(string: url) else {
+              fatalError("Invalid Url")
+          }
+          
+         return URLSession.shared.dataTaskPublisher(for: dataUrl)
+              .map {$0.data}
+              .decode(type: RPdata.self, decoder: JSONDecoder())
+              .map{$0.latest!}
+              .receive(on: RunLoop.main)
+              .eraseToAnyPublisher()
+      }
     
-    
+    func fetchData2() -> AnyPublisher<Latest,Error> {
+
+        let url = "https://coronavirus-tracker-api.herokuapp.com/v2/latest"
+        
+        guard let dataUrl = URL(string: url) else {
+            fatalError("Invalid Url")
+        }
+        
+       return URLSession.shared.dataTaskPublisher(for: dataUrl)
+            .map {$0.data}
+            .decode(type: RPdata.self, decoder: JSONDecoder())
+            .map{$0.latest!}
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+      
+    func fetchData3() -> AnyPublisher<RPdata,Error> {
+
+          let url = "https://coronavirus-tracker-api.herokuapp.com/v2/locations"
+          
+          guard let dataUrl = URL(string: url) else {
+              fatalError("Invalid Url")
+          }
+          
+         return URLSession.shared.dataTaskPublisher(for: dataUrl)
+              .map {$0.data}
+              .decode(type: RPdata.self, decoder: JSONDecoder())
+            .map{$0.self}
+              .receive(on: RunLoop.main)
+              .eraseToAnyPublisher()
+      }
+        
     
     
     

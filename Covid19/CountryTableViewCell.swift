@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Combine
 
 class CountryTableViewCell: UITableViewCell {
-
+private var cancalable3: AnyCancellable?
     @IBOutlet weak var countryName: UILabel!
     
     @IBOutlet weak var death: UILabel!
@@ -17,9 +18,16 @@ class CountryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recover: UILabel!
     
+        private var webService = Api()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.cancalable3 = self.webService.fetchData3()
+            .catch {_ in Just(RPdata.placeholder) }
+            .map {$0.locations?.country }
+            .assign(to: \.text, on: self.countryName!)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
