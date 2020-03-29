@@ -12,30 +12,18 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-import ObjectMapper
 
-struct Locations : Mappable {
-	var id : Int?
-	var country : String?
-	var country_code : String?
-	var province : String?
-	var last_updated : String?
-	var coordinates : Coordinates?
-	var latest : Latest?
 
-	init?(map: Map) {
+struct Locations : Decodable {
+	let id : Int?
+	let country : String?
+	let country_code : String?
+	let province : String?
+	let last_updated : String?
+	let coordinates : Coordinates?
+	let latest : Latest?
 
-	}
-
-	mutating func mapping(map: Map) {
-
-		id <- map["id"]
-		country <- map["country"]
-		country_code <- map["country_code"]
-		province <- map["province"]
-		last_updated <- map["last_updated"]
-		coordinates <- map["coordinates"]
-		latest <- map["latest"]
-	}
-
+    static var placeholder: Locations {
+        return Locations(id: nil, country: nil, country_code: nil, province: nil, last_updated: nil, coordinates: nil, latest: nil)
+    }
 }

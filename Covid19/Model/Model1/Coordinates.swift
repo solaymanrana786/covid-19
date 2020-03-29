@@ -14,18 +14,3 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 import ObjectMapper
 
-struct Coordinates : Mappable {
-	var latitude : String?
-	var longitude : String?
-
-	init?(map: Map) {
-
-	}
-
-	mutating func mapping(map: Map) {
-
-		latitude <- map["latitude"]
-		longitude <- map["longitude"]
-	}
-
-}

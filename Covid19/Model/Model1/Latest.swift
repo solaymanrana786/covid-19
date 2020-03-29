@@ -12,22 +12,5 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-import ObjectMapper
 
-struct Latest : Mappable {
-	var confirmed : Int?
-	var deaths : Int?
-	var recovered : Int?
 
-	init?(map: Map) {
-
-	}
-
-	mutating func mapping(map: Map) {
-
-		confirmed <- map["confirmed"]
-		deaths <- map["deaths"]
-		recovered <- map["recovered"]
-	}
-
-}
