@@ -8,13 +8,17 @@
 
 
 import Foundation
-class ResponseStatus{
+
+
+class ResponseStatus {
+    
     var isSuccess : Bool = false
     var responnseCode : Int = 0
     var msg : String = ""
     
     
     init(isSuccess : Bool,resCode : Int,msg : String) {
+        
         self.isSuccess = isSuccess
         self.msg = msg
         responnseCode = resCode

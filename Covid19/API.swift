@@ -13,31 +13,10 @@ import AlamofireObjectMapper
 class Api {
     
     class func getResponseStatus(isSuccess: Bool, responseCode : Int, msg: String)-> ResponseStatus {
-              return ResponseStatus(isSuccess: isSuccess, resCode : responseCode, msg: msg)
-          }
-    //    class func getData(){
-    //
-    //        var request = URLRequest(url: URL(string: "https://coronavirus-tracker-api.herokuapp.com/v2/locations")!)
-    //        request.httpMethod = "GET"
-    //
-    //        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-    //            do {
-    //                let jsonDecoder = JSONDecoder()
-    //                let responseModel = try jsonDecoder.decode(RPdata.self, from: data!)
-    //                print(responseModel)
-    //            } catch {
-    //                print("JSON Serialization error")
-    //            }
-    //        }).resume()
-    //    }
-    //
-    //
+        return ResponseStatus(isSuccess: isSuccess, resCode : responseCode, msg: msg)
+    }
+    
     class func getCases(customerID: Int,  completionHandler : @escaping(_ rpProductsByCategory :RPdata1?, _ status: ResponseStatus) -> ()){
-        
-        
-        
-        let consumer_key = "ck_446397b437656a5343676f11f5f11f295ecafd57"
-        let consumer_secret = "cs_d3fe68b464873db13ebcef74e17e61a2ece9bc4c"
         
         let url = "https://coronavirus-tracker-api.herokuapp.com/v2/locations" 
         print(url)
