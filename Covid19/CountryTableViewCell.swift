@@ -10,15 +10,15 @@ import UIKit
 import Combine
 
 class CountryTableViewCell: UITableViewCell {
-private var cancalable3: AnyCancellable?
-    @IBOutlet weak var countryName: UILabel!
     
+    private var cancalable3: AnyCancellable?
+    
+    @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var death: UILabel!
     @IBOutlet weak var cases: UILabel!
-    
     @IBOutlet weak var recover: UILabel!
     
-        private var webService = Api()
+    private var webService = Api()
     
     override func awakeFromNib() {
         super.awakeFromNib()

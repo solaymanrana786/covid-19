@@ -13,7 +13,6 @@
 
 import Foundation
 
-
 struct RPdata : Decodable {
     let latest : Latest?
     let locations : Locations?
@@ -24,7 +23,6 @@ struct RPdata : Decodable {
     
 }
 
-
 struct Latest : Decodable {
     let confirmed : Int?
     let deaths : Int?
@@ -33,7 +31,6 @@ struct Latest : Decodable {
     static var placeholder: Latest {
         return Latest(confirmed: nil, deaths: nil, recovered: nil)
     }
-    
     
 }
 
@@ -50,7 +47,6 @@ struct Locations : Decodable {
         return Locations(id: nil, country: nil, country_code: nil, province: nil, last_updated: nil, coordinates: nil, latest: nil)
     }
 }
-
 
 struct Coordinates : Decodable {
     let latitude : String?

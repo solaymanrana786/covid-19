@@ -8,6 +8,8 @@
 
 
 import Foundation
+
+
 class ResponseStatus{
     var isSuccess : Bool = false
     var responnseCode : Int = 0
